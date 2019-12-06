@@ -1,6 +1,10 @@
 * Storybot
 Short Story Vending Machine: Press a button, get a story
 
+* Stories
+Stories are ASCII text files, with a .txt
+file extension, and placed in the 'story' directory.
+
 * Software Design
 The scripts use existing programs available on a standard Linux
 installation (fmt,strfile,fortune) to efficiently retrieve a random
@@ -13,3 +17,16 @@ directory) processes these into a single file which is then indexed
 
 To retrived a random story, use:
   make story
+
+** Dependancies
+The following packages are required:
+- fortune-mod fortunes-min: Story processing programs
+- cups: For printing
+
+* Installation
+** Cups
+See: https://www.howtogeek.com/169679/how-to-add-a-printer-to-your-raspberry-pi-or-other-linux-computer/
+
+#+BEGIN_SRC 
+sudo nano /etc/cups/cupsd.conf
+#+END_SRC

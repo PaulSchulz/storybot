@@ -1,0 +1,15 @@
+* Storybot
+Short Story Vending Machine: Press a button, get a story
+
+* Software Design
+The scripts use existing programs available on a standard Linux
+installation (fmt,strfile,fortune) to efficiently retrieve a random
+story for printing.
+
+Story files (text files) are stored in the 'stories' directory as
+individual text files. A 'merge.sh' script (located in the 'scripts'
+directory) processes these into a single file which is then indexed
+(by strfile) and then used by 'fortune' to read individual stories.
+
+To retrived a random story, use:
+  make story

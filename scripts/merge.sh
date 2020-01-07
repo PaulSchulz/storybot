@@ -7,7 +7,7 @@ WIDTH=40
 
 for file in `ls $STORIES | grep txt`; do
     # echo $file
-    cat $STORIES/$file | fmt -$WIDTH
+    cat $STORIES/$file | uni2ascii -Bq | fmt -$WIDTH
     echo
     echo "               --ooOOoo--               "
     echo

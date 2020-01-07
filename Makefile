@@ -13,7 +13,7 @@ help:
 	@echo "  make help    - this message (default)"
 	@echo "  make story   - display a story"
 	@echo "  make prepare - compile the stories into data file"
-	@echo "               (This will be run automatically, if required.)"
+	@echo "                 (This will be run automatically, if required.)"
 	@echo "  make list    - list story files"
 	@echo "  make clean   - reset system by removing generated files"
 	@echo "  make status  - display system status"
@@ -34,9 +34,9 @@ data/merged.txt:
 	@scripts/merge.sh > data/merged.txt
 
 list:
-	@echo "Story list"
+	@echo "Words Story"
 	@echo "--------------------------------------"
-	@ls stories/*.txt | cat
+	@ls stories/*.txt | xargs wc -w
 
 clean:
 	@rm data/*

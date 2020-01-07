@@ -1,0 +1,61 @@
+[
+    {
+        "id": "7380d8ec.f95888",
+        "type": "tab",
+        "label": "Storybot",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d732b117.eb367",
+        "type": "rpi-gpio in",
+        "z": "7380d8ec.f95888",
+        "name": "Button",
+        "pin": "10",
+        "intype": "down",
+        "debounce": "25",
+        "read": false,
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "fbde0d61.64915"
+            ]
+        ]
+    },
+    {
+        "id": "fbde0d61.64915",
+        "type": "exec",
+        "z": "7380d8ec.f95888",
+        "command": "sudo ./Documents/git/storybot/scripts/print-and-eject.sh",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "f36454bf.aab4e8"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f36454bf.aab4e8",
+        "type": "debug",
+        "z": "7380d8ec.f95888",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 750,
+        "y": 80,
+        "wires": []
+    }
+]

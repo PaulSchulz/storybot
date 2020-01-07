@@ -1,11 +1,12 @@
 * Storybot
 Short Story Vending Machine: Press a button, get a story
 
-** Hardware
+** Introduction
+*** Hardware
 The target hardware is a Raspberry Pi with a USB thermal
 printer and a button wired to a GPIO port.
 
-** Software Design
+*** Software Design
 The scripts use existing programs available on a standard Linux
 installation (fmt,strfile,fortune) to efficiently retrieve a random
 story for printing.
@@ -30,12 +31,25 @@ To trigger the printing of a story, a method needs to be used to read
 the state of a GPIO port and run the above command when the button is
 pressed. Node-RED, WiringPi or RPi.GPIO (Python)
 
-*** Dependancies
+** Dependancies
 The following packages are required:
 - fortune-mod fortunes-min: Story processing programs
 - cups: For printing
+- uni2ascii: Used to remove unicode from story files
+
+The following binaries also needs to be compiled:
+  bin/ttputil
 
 ** Installation
+*** Node-Red
+Install via installation script for Debian based systems.
+See: https://nodered.org/docs/getting-started/raspberrypi
+#+BEGIN_SRC 
+  bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+#+END_SRC
+
+Upload and deploy the 'storybot.json' flow definition file.
+
 *** Cups
 See: https://www.howtogeek.com/169679/how-to-add-a-printer-to-your-raspberry-pi-or-other-linux-computer/
 

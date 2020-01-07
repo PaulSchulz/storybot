@@ -1,0 +1,30 @@
+* Issues
+The following are outstanding issues, which may or may not get fixed.
+
+** DONE CUPS Printer Font                         :work_around:
+The default font when printing through CUPS is large, and should be
+reduced but ther is currently no option to do this.
+
+The work around is to send the text directly to the printer and then
+send the 'cut-eject' command which will also print the contents of the
+print buffer first.
+
+For come reason this needs to be done as root, but is done with the
+'script/print-and-eject.sh' script. This scripts is run from Node-Red
+when a button press is detected.
+
+** TODO Power-on printer configuration
+The printer configuration is correctly set and maintained when
+printing from CUPS, but this does not occur if data is sent directly
+to the printer port.
+
+Configurations that need setting include:
+- Use of the printout looper - OFF
+
+* New features
+** Header graphic on printout
+The printer supports graphics, but needs to be understood and
+implemented.
+
+- Understand graphic format
+

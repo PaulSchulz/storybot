@@ -1,32 +1,62 @@
 * Storybot
 Short Story Vending Machine: Press a button, get a story
 
-* Stories
-Stories are ASCII text files, with a .txt
-file extension, and placed in the 'story' directory.
+** Hardware
+The target hardware is a Raspberry Pi with a USB thermal
+printer and a button wired to a GPIO port.
 
-* Software Design
+** Software Design
 The scripts use existing programs available on a standard Linux
 installation (fmt,strfile,fortune) to efficiently retrieve a random
 story for printing.
 
-Story files (text files) are stored in the 'stories' directory as
-individual text files. A 'merge.sh' script (located in the 'scripts'
-directory) processes these into a single file which is then indexed
-(by strfile) and then used by 'fortune' to read individual stories.
+Story files (ASCII text files) are stored in the 'stories' directory
+as individual text files with a 'txt' extension. A 'merge.sh' script
+(located in the 'scripts' directory) processes these into a single
+file which is then indexed (by strfile) and then used by 'fortune' to
+read individual stories.
 
-To retrived a random story, use:
+For testing, to retrived a random story, use:
+#+BEGIN_SRC 
   make story
+#+END_SRC
 
-** Dependancies
+To print a random story, use:
+#+BEGIN_SRC 
+  make story | lp
+#+END_SRC
+
+To trigger the printing of a story, a method needs to be used to read
+the state of a GPIO port and run the above command when the button is
+pressed. Node-RED, WiringPi or RPi.GPIO (Python)
+
+*** Dependancies
 The following packages are required:
 - fortune-mod fortunes-min: Story processing programs
 - cups: For printing
 
-* Installation
-** Cups
+** Installation
+*** Cups
 See: https://www.howtogeek.com/169679/how-to-add-a-printer-to-your-raspberry-pi-or-other-linux-computer/
 
+Install 
 #+BEGIN_SRC 
-sudo nano /etc/cups/cupsd.conf
+sudo apt-get install cups
 #+END_SRC
+
+
+#+BEGIN_SRC 
+  sudo usermod -a -G lpadmin pi
+#+END_SRC
+
+
+Edit the configuration file
+#+BEGIN_SRC 
+  sudo nano /etc/cups/cupsd.conf
+#+END_SRC
+
+Restart the CUPS service
+#+BEGIN_SRC 
+  sudo /etc/init.d/cups restart
+#+END_SRC
+

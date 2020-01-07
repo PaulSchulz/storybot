@@ -5,8 +5,11 @@ cd ${0%/*}
 STORIES="../stories"
 WIDTH=40
 
-for file in `ls $STORIES`; do
+for file in `ls $STORIES | grep txt`; do
     # echo $file
     cat $STORIES/$file | fmt -$WIDTH
+    echo
+    echo "               --ooOOoo--               "
+    echo
     echo "%"
 done

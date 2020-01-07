@@ -19,7 +19,7 @@ help:
 	@echo "  make status  - display system status"
 
 story: stories/delete-me-to-process-stories prepare
-	@fortune data/merged.txt
+	@/usr/games/fortune data/merged.txt
 
 stories/delete-me-to-process-stories:
 	@rm -f data/merged.txt

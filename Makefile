@@ -24,6 +24,7 @@ story: stories/delete-me-to-process-stories prepare
 stories/delete-me-to-process-stories:
 	@rm -f data/merged.txt
 	@touch stories/delete-me-to-process-stories
+	@chmod 664 stories/delete-me-to-process-stories
 
 prepare: data/merged.txt.dat
 
